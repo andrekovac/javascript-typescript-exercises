@@ -52,6 +52,10 @@ word; // "hello"
 
 // ! Re-assignment (const)
 
+const mySum = (one, two, three) => {
+  return one + two + three;
+};
+
 let returnValue = {};
 returnValue.sds = mySum(2,6,1);
 console.log(returnValue.sds);
@@ -78,10 +82,6 @@ const [, lng] = coordinates; // equivalent to: `const lng = coordinates[1];`
 // ! Spread function arguments
 // !--------------------------
 
-const mySum = (one, two, three) => {
-  return one + two + three;
-};
-
 const values = [1, 2, 3];
 // Elegant solution with spread operator:
 const result = mySum(...values);
@@ -103,10 +103,11 @@ console.log(third);
 // ! nullish coalescing operator (??) and optional chaining operator (?.)
 // !---------------------------------------------------------------------
 
-let greeting = { say: "hi" };
+// This example caused issue with Quokka. Please try in browser console:
 
-console.log(greeting.say?.toUpperCase() ?? "not available"); // "HI"
-console.log(greeting.dontSay?.toUpperCase() ?? "not available"); // "not available"
+//let greeting = { say: "hi" };
+// console.log(greeting.say?.toUpperCase() ?? "not available"); // "HI"
+// console.log(greeting.dontSay?.toUpperCase() ?? "not available"); // "not available"
 
 // ? 🐒 [Question]: Explain this interplay of nullish coalescing operator (??) and optional chaining operator (?.)
 // Your answer:
