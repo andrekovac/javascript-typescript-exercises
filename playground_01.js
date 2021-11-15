@@ -56,7 +56,7 @@ const mySum = (one, two, three) => {
   return one + two + three;
 };
 
-let returnValue = {};
+const returnValue = {};
 returnValue.sds = mySum(2,6,1);
 console.log(returnValue.sds);
 
