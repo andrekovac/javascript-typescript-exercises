@@ -30,16 +30,17 @@ const myObjectCopied = myObject;
 const myObjectCopiedSpread = { ...myObject };
 
 
-// ? 🐆 [Task]: For each of the next mutations of `myObject`, decide whether it ...
-// 1️⃣ ...changes `myObject` AND `myObjectCopied`
-// 2️⃣ ...changes only `myObject`
-// 3️⃣ ...changes only `myObjectCopiedSpread`
+// ? 🐆 [Task]: For each of the below mutations of `myObject`,
+// ?            write whether it changes one or several of the other objects:
+// You can use 1️⃣ for `myObject`
+// You can use 2️⃣ for `myObjectCopied`
+// You can use 3️⃣ for `myObjectCopiedSpread`
 
-myObject.foo[2] = 6; // Your number here: 1️⃣ , 2️⃣  or  3️⃣
-myObject.baz = 6; // Your number here: 1️⃣ , 2️⃣  or  3️⃣
-myObject.bar.b = 6; // Your number here: 1️⃣ , 2️⃣  or  3️⃣
-myObject.qux = "two" // Your number here: 1️⃣ , 2️⃣  or  3️⃣
-myObject.quux = "?" // Your number here: 1️⃣ , 2️⃣  or  3️⃣
+myObject.foo[2] = 6;  // Which objects change?
+myObject.baz = 6;     // Which objects change?
+myObject.bar.b = 6;   // Which objects change?
+myObject.qux = "two"  // Which objects change?
+myObject.quux = "?"   // Which objects change?
 
 // ? 🐒 [Question]: Explain your decisions
 // Your answer:

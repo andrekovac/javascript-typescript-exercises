@@ -57,7 +57,7 @@ const mySum = (one, two, three) => {
 };
 
 const returnValue = {};
-returnValue.sds = mySum(2,6,1);
+returnValue.sds = mySum(2,6,1); // assignment
 console.log(returnValue.sds);
 
 // ? 🐒 [Question]: Why is this assignment to property of a `const` possible?
@@ -123,19 +123,19 @@ console.log(third);
 // ? 🐆 [Task]: Guess the result of each line first and then uncomment the `console.log` statement:
 
 const one = true + false;
-// console.log(one);
+console.log(one);
 
-const two = 1 + " hello world";
-// console.log(two);
+const two = 1 + 2 + " hello world" + 5 + 3 + 43;
+console.log(two);
 
 const three = 1 + true;
-// console.log(three);
+console.log(three);
 
 const four = "hello" + true;
-// console.log(four);
+console.log(four);
 
 const five = {} + {};
-// console.log(five);
+console.log(five);
 
 const six = {} === {};
-// console.log(six);
+console.log(six);
