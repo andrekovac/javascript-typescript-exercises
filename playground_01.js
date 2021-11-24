@@ -86,7 +86,7 @@ const values = [1, 2, 3];
 // Elegant solution with spread operator:
 const result = mySum(...values);
 // Verbose solution without spread operator:
-// const result = mySum(values[0], values[1], values[2]);
+const resultVerbose = mySum(values[0], values[1], values[2]);
 
 console.log(result);
 
@@ -97,15 +97,38 @@ const myArray = [1, [2, 3]];
 const [, [, third]] = myArray;
 console.log(third);
 
+// ! Array destructuring (fake useState function)
+// !----------------------
+
+// Attention: This is a fake `useState` function
+// It's not how React.useState function is implemented
+const useState = (initialValue) => {
+  const stateValue = initialValue;
+  const setStateValue = (newValue) => { stateValue.count = newValue.count };
+  return [stateValue, setStateValue];
+}
+
+// Array destructuring
+const [count, setCount] = useState({ count: 0 });
+
+setCount({ count: 5 });
+console.log(count);
+
+// ! Object destructuring (nested)
+// !----------------------
+
+const props = { data: { a: [1, 2, 3], b: [1, 2, 3] } };
+const { data: { a: dataA } } = props; // nested destructuring + renaming of `a` to `dataA`
+
+console.log(dataA)
+
 // -----------------------------------------------------------------------------
 
 // !---------------------------------------------------------------------
 // ! nullish coalescing operator (??) and optional chaining operator (?.)
 // !---------------------------------------------------------------------
 
-// This example caused issue with Quokka. Please try in browser console:
-
-//let greeting = { say: "hi" };
+// let greeting = { say: "hi" };
 // console.log(greeting.say?.toUpperCase() ?? "not available"); // "HI"
 // console.log(greeting.dontSay?.toUpperCase() ?? "not available"); // "not available"
 
@@ -151,9 +174,8 @@ const seven = [1, 2] ==	'1,2'
 const eight = Object.is(+0, -0);
 // console.log(eight);
 
-// This result was computed wrong on my computer 😅
 const nine = +0 === -0;
-// console.log(eight);
+// console.log(nine);
 
 const car1 = { wheels: 4 }
 const car2 = car1;

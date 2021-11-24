@@ -52,6 +52,12 @@ myObject.quux = "?"   // Which objects change?
 // console.log(myObjectCopiedSpread);
 // console.log(myObjectCopied)
 
+// ! Deep copies in vanilla JS?
+// New global method: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
+// Will be supported by browsers soon.
+// !-------------------
+
+
 // ! Referential Equality?
 // !----------------------
 
@@ -147,7 +153,11 @@ console.log(normalizeSpread); // 'Ahmed' remains (no 'Franz')
 // ! Callback based request:
 
 const httpRequest = (url, callback) => setTimeout(() => {
-  callback({ data: [], status: 200, url });
+  if (!url) {
+    callback({ status: 400 });
+  } else {
+    callback({ data: [], status: 200, url });
+  }
 }, 1000)
 
 const performAction = (value, action) => action(value);
@@ -157,19 +167,38 @@ const makeRequest = url => httpRequest(url, response => {
   })
 });
 
-makeRequest('http://localhost:3000');
+// successful request
+makeRequest('http://localhost:3000'); // logs `Status: 200`
+// failed request
+makeRequest(); // logs `Status: 400`
 
 
 // ! Promise-based request with async/await:
 
 const httpRequestWithPromise = (url) => new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve({ data: [], status: 200, url });
+    if (!url) {
+      reject({ status: 400 });
+    } else {
+      resolve({ data: [], status: 200, url });
+    }
   }, 1000)
 })
 
-// ? 🐆 [Task]: Write an async/await function `makeRequestAsyncAwait` which
+// ? 🐆 [Task]: Complete the async/await function `makeRequestAsyncAwait` which
 // ?            calls `httpRequestWithPromise` and `console.log`s `response.status` as above.
 
-// ! Uncoment this line after you implemented `makeRequestAsyncAwait`
-// makeRequestAsyncAwait('http://localhost:3000');
+const makeRequestAsyncAwait = async (url) => {
+  try {
+    // Add code here
+  } catch (error) {
+    // Add code here
+  }
+}
+
+// ! Uncoment these two calls after you implemented `makeRequestAsyncAwait`
+// passed url causes resolved Promise
+makeRequestAsyncAwait('http://localhost:3000');
+
+// no passed url causes rejected Promise
+makeRequestAsyncAwait();
