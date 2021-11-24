@@ -123,19 +123,48 @@ console.log(third);
 // ? 🐆 [Task]: Guess the result of each line first and then uncomment the `console.log` statement:
 
 const one = true + false;
-console.log(one);
+// console.log(one);
 
 const two = 1 + 2 + " hello world" + 5 + 3 + 43;
-console.log(two);
+// console.log(two);
 
 const three = 1 + true;
-console.log(three);
+// console.log(three);
 
 const four = "hello" + true;
-console.log(four);
+// console.log(four);
 
 const five = {} + {};
-console.log(five);
+// console.log(five);
 
 const six = {} === {};
-console.log(six);
+// console.log(six);
+
+const seven = [1, 2] ==	'1,2'
+// console.log(seven);
+
+// !--------------------------------
+// ! Object.is() comparison operator
+// ! https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+// !--------------------------------
+
+const eight = Object.is(+0, -0);
+// console.log(eight);
+
+// This result was computed wrong on my computer 😅
+const nine = +0 === -0;
+// console.log(eight);
+
+const car1 = { wheels: 4 }
+const car2 = car1;
+const ten = Object.is(car1, car2);
+// console.log(ten);
+
+car1.wheels = 5; // mutate original car1 object
+const eleven = Object.is(car1, car2);
+// console.log(eleven);
+
+const twelve = Object.is(car1, { wheels: 5 });
+// console.log(twelve);
+
+console.log(Object.is({ a: 'blue' }, { a: 'red' }));
