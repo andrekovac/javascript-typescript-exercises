@@ -66,6 +66,17 @@ const objectCopy2 = myObjectCopiedSpread === myObject // false
 // ! Spread vs. no-spread in reduce function
 // !----------------------------------------
 
+// Example of `reduce` function:
+
+const sum = [0, 1, 2, 3, 4].reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+// ? Steps:
+// accumulator: 0, currentValue: 0,
+// accumulator: 0, currentValue: 1
+// accumulator: 1, currentValue: 2
+// accumulator: 3, currentValue: 3
+// accumulator: 6, currentValue: 4
+
+
 const data = [
   { id: 1, name: "Ahmed" },
   { id: 2, name: "Zhang" },
@@ -98,6 +109,16 @@ const normalize = data.reduce((accumulator, currentValue) => {
   accumulator[currentValue.id] = currentValue;
   return accumulator;
 }, {});
+
+// ? Steps:
+// accumulator: {}, currentValue: {}
+// accumulator: { 1: { id: 1, name: 'Ahmed' } }, currentValue: { id: 1, name: 'Ahmed' }
+// accumulator: { 1: { id: 1, name: 'Ahmed' }, 2: { id: 2, name: 'Zhang' } }, currentValue: { id: 2, name: 'Zhang' }
+
+// ---
+// Note: `find` has complexity of O(n)
+const user = data.find(name => name.id == 3);
+// ---
 
 const normalizeSpread = data.reduce((accumulator, currentValue) => {
   // add new value (copied with spread operator) with key `id`
