@@ -33,10 +33,33 @@ function outerFunction2(frozenObject) {
   return innerFunction2
 }
 
-const input = { count: 3 };
+const input2 = { count: 3 };
 // freeze object
-const myClosure2 = outerFunction2(input);
+const myClosure2 = outerFunction2(input2);
 // mutate count
-input.count = 6;
+input2.count = 7;
 // call closure
 myClosure2({ count: 5 }); // Which output will be logged when calling this function?
+
+// -----------------------------
+// Closures (complext objects 2)
+// -----------------------------
+
+function outerFunction3(frozenObject) {
+  
+  const frozenObjectCount = frozenObject.count;
+
+  function innerFunction3(variableObject) {
+    // Question: Which output will be logged?
+    console.log(variableObject.count + frozenObjectCount)
+  }
+  return innerFunction3
+}
+
+const input3 = { count: 3 };
+// freeze object
+const myClosure3 = outerFunction3(input3);
+// mutate count
+input3.count = 7;
+// call closure
+myClosure3({ count: 5 }); // Which output will be logged when calling this function?
