@@ -143,6 +143,9 @@ console.log(dataA)
 // ! Type Coercion
 // !---------------
 
+// This section is here to demonstrate that the implicit type coercion in JavaScript
+// can be very unpredictable. You don't have to (shouldn't) try to understand all of the examples.
+
 // ? 🐆 [Task]: Guess the result of each line first and then uncomment the `console.log` statement:
 
 const one = true + false;
@@ -190,3 +193,7 @@ const twelve = Object.is(car1, { wheels: 5 });
 // console.log(twelve);
 
 console.log(Object.is({ a: 'blue' }, { a: 'red' }));
+
+
+// Bonus: Really crazy example:
+// https://stackoverflow.com/questions/7202157/why-does-return-the-string-10
