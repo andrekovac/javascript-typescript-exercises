@@ -10,14 +10,117 @@ const three = 1 + true;
 
 const four = "hello" + true;
 
-let age2: number | undefined | null = 4;
+// !---------------
+// ! Type Inference
+// !---------------
 
+// type inferred
+let myName = "John";
+myName = 8; // type error!
+
+// ! Function types
+
+// infers '5 | undefined' return type
+const myFct2 = () => Math.random() > 0.5 ? 5 : undefined;
+// infers 'void' return type
+const myFct3 = () => { console.log("Hello, world!") };
+// inferred return type
+const myFct4 = (name: string, surname?: string) => {
+  return name + surname;
+}
+
+const resultOfMyFct2 = myFct2();
+
+// !-----------------
+// ! Types vs. Values
+// !-----------------
+
+// ! type 'undefined' vs. value 'undefined'
+
+let age2: number | undefined | null = 4;
 age2 = undefined;
 
-const myObject = {
-  a: 1,
+// !------------------
+// ! Interface merging
+// !------------------
+
+interface MyBookT {
+  title: string;
+  isbn: string;
+}
+interface MyBookT {
+  price: number;
+}
+
+// !------------------
+// ! Excess properties
+// !------------------
+
+type MyMagazineT =  { title: string, issn: string };
+type ReadingMaterialT = MyBookT | MyMagazineT;
+
+const readingMaterial: ReadingMaterialT[] = [
+  {
+      title: 'New Covid-19 vaccine',
+      isbn: '978-3401002569',
+      price: 9,
+  },
+  {
+      title: 'Robinson Crusoe',
+      issn: '21212-212'
+  }
+];
+
+// ! Attention: No excess property check if MyMagazinT only contains `title` (no `issn`)!
+// See https://stackoverflow.com/questions/70253737/union-of-two-objects-where-one-is-the-subtype-of-the-other-is-not-type-safe
+
+// ! Typescript is not a sound type system
+// !--------------------------------------
+
+type Books = Array<{ isbn: string; title: string }>;
+
+let books: Books = [
+  {
+    isbn: "sadasfd",
+    title: "ein buch",
+  },
+  {
+    isbn: "sadasfd",
+    title: "ein zweites buch",
+  },
+];
+
+const books2 = [
+  {
+    isbn: "sadasfd",
+    title: "ein buch",
+    nochwas: "ein buch",
+  },
+  {
+    isbn: "sadasfd",
+    title: "ein zweites buch",
+    nochwas: "ein zweites buch",
+  },
+];
+books = books2;
+
+
+
+// ! Allow excess properties
+// ! -----------------------
+
+type Car = {
+  wheels: number;
+  engine: string;
+  // Allow excess properties
+  [key: string]: unknown;
 };
 
+const MyTesla: Car = {
+  wheels: 4,
+  engine: "electric",
+  cameras: 20,
+};
 
 // !----------------------------
 // ! Function (parameter values)
@@ -224,54 +327,6 @@ let book: { isbn: string; title: string };
 //   age: 65,
 // }
 
-// !---------------
-// ! Typescript is not a sound type system
-// !---------------
-
-type Books = Array<{ isbn: string; title: string }>;
-
-let books: Books = [
-  {
-    isbn: "sadasfd",
-    title: "ein buch",
-  },
-  {
-    isbn: "sadasfd",
-    title: "ein zweites buch",
-  },
-];
-
-const books2 = [
-  {
-    isbn: "sadasfd",
-    title: "ein buch",
-    nochwas: "ein buch",
-  },
-  {
-    isbn: "sadasfd",
-    title: "ein zweites buch",
-    nochwas: "ein zweites buch",
-  },
-];
-books = books2;
-
-
-
-//---------------
-// Advanced Types
-//---------------
-
-type Car = {
-  wheels: number;
-  engine: string;
-  [key: string]: unknown;
-};
-
-const MyTesla: Car = {
-  wheels: 4,
-  engine: "electric",
-  cameras: 20,
-};
 
 // !---------------
 // ! Type guards
