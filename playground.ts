@@ -122,6 +122,8 @@ const MyTesla: Car = {
   cameras: 20,
 };
 
+// Alternative: Intersection with Record.
+
 // !----------------------------
 // ! Function (parameter values)
 // !----------------------------

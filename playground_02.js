@@ -23,7 +23,7 @@ const myObject = {
   qux: "one",
 };
 
-// 2. Now we create two "copies":
+// 2. Now we create three "copies":
 // A: Simple copy
 const myObjectCopied = myObject;
 // B: Copy via spread operator
@@ -60,12 +60,6 @@ myObject.quux = "?";  // Which objects change?
 // console.log(myObjectCopiedSpreadDeep);
 // console.log(myObjectCopied)
 
-// ! Deep copies in vanilla JS?
-// New global method: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
-// Not well supported yet. Will be supported by browsers soon.
-// For now: Use https://ramdajs.com/docs/#clone or https://lodash.com/docs/#cloneDeep
-// !---------------------------
-
 // ! Referential Equality?
 // !----------------------
 
@@ -76,6 +70,12 @@ const objectCopy2 = myObjectCopiedSpread === myObject; // false
 // Your answer:
 //
 //
+
+// ! Deep copies in vanilla JS?
+// New global method: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
+// Not well supported yet. Will be supported by browsers soon.
+// For now: Use https://ramdajs.com/docs/#clone or https://lodash.com/docs/#cloneDeep
+// !---------------------------
 
 // ! Spread vs. no-spread in reduce function
 // !----------------------------------------
@@ -228,8 +228,9 @@ makeRequestPromiseChain();
 // ? 🐆 [Task]: Currently the rejected promise is handled inside the
 // ?            second callback function of the `.then` call.
 // ?
-// ?            Your task: Change the `makeRequestPromiseChain` function such that
-// ?            the `catch` block handles the rejected Promise instead of 
+// ?            Your task: Change the `makeRequestPromiseChain` function above
+// ?            such that the `catch` block handles the rejected Promise instead
+// ?            of the second argument of the `.then` call.
 
 
 // ! 3) async/await based request function

@@ -22,7 +22,7 @@ myClosure1(4) // Which output will be logged when calling this function?
 
 
 // ----------------------------
-// Closures (complext objects)
+// Closures (complex objects)
 // ----------------------------
 
 function outerFunction2(frozenObject) {
@@ -42,7 +42,7 @@ input2.count = 7;
 myClosure2({ count: 5 }); // Which output will be logged when calling this function?
 
 // -----------------------------
-// Closures (complext objects 2)
+// Closures (complex objects 2)
 // -----------------------------
 
 function outerFunction3(frozenObject) {
