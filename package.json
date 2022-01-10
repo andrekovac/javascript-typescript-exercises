@@ -1,0 +1,13 @@
+{
+  "name": "javascript-typescript-exercises",
+  "version": "1.0.0",
+  "description": "JavaScript and TypeScript exercises",
+  "main": "playground.ts",
+  "repository": "git@github.com:andrekovac/javascript-typescript-exercises.git",
+  "author": "André Kovac <me@andrekovac.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
+}
