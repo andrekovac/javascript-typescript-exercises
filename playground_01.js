@@ -117,7 +117,7 @@ console.log(count);
 // ! Object destructuring (nested)
 // !----------------------
 
-const props = { data: { a: [1, 2, 3], b: [1, 2, 3] } };
+const props = { data: { a: [1, 2, 3], b: [4, 5, 6] } };
 const { data: { a: dataA } } = props; // nested destructuring + renaming of `a` to `dataA`
 
 console.log(dataA)
