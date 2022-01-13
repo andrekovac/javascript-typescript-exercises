@@ -11,7 +11,7 @@
 //
 //
 // ? 2. When using the `dot property accessor` the property has to be an `identifier`.
-// ?    Use https://developer.mozilla.org/en-US/docs/Glossary/Identifier to explain what an idenifier is.
+// ?    Use https://developer.mozilla.org/en-US/docs/Glossary/Identifier to explain what an identifier is.
 // Your answer:
 //
 //
@@ -23,7 +23,7 @@
 // ! var, let, const
 // !---------------
 
-// ! Sopce (var)
+// ! Scope (var)
 
 var newWord = "hello"
 const testScope = () => {
@@ -117,7 +117,7 @@ console.log(count);
 // ! Object destructuring (nested)
 // !----------------------
 
-const props = { data: { a: [1, 2, 3], b: [1, 2, 3] } };
+const props = { data: { a: [1, 2, 3], b: [4, 5, 6] } };
 const { data: { a: dataA } } = props; // nested destructuring + renaming of `a` to `dataA`
 
 console.log(dataA)
