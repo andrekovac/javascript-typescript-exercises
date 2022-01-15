@@ -242,9 +242,9 @@ makeRequestPromiseChain();
 
 const makeRequestAsyncAwait = async (url) => {
   try {
-    // Add code here
+    // Add code here to log the status
   } catch (error) {
-    // Add code here
+    // Add code here to log the status
   }
 };
 
