@@ -1,3 +1,4 @@
+/* eslint-disable */
 // !-----------------------
 // ! Object property access
 // !-----------------------
@@ -102,7 +103,7 @@ console.log(third);
 
 // Attention: This is a fake `useState` function
 // It's not how React.useState function is implemented
-const useState = (initialValue) => {
+const useStateCustom = (initialValue) => {
   const stateValue = initialValue;
   const setStateValue = (newValue) => {
     stateValue.count = newValue.count;
@@ -111,7 +112,7 @@ const useState = (initialValue) => {
 };
 
 // Array destructuring
-const [count, setCount] = useState({ count: 0 });
+const [count, setCount] = useStateCustom({ count: 0 });
 
 setCount({ count: 5 });
 console.log(count);
