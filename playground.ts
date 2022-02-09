@@ -21,13 +21,15 @@ myName = 8; // type error!
 // ! Function types
 
 // infers '5 | undefined' return type
-const myFct2 = () => Math.random() > 0.5 ? 5 : undefined;
+const myFct2 = () => (Math.random() > 0.5 ? 5 : undefined);
 // infers 'void' return type
-const myFct3 = () => { console.log("Hello, world!") };
+const myFct3 = () => {
+  console.log("Hello, world!");
+};
 // inferred return type
 const myFct4 = (name: string, surname?: string) => {
   return name + surname;
-}
+};
 
 const resultOfMyFct2 = myFct2();
 
@@ -56,19 +58,19 @@ interface MyBookT {
 // ! Excess properties
 // !------------------
 
-type MyMagazineT =  { title: string, issn: string };
+type MyMagazineT = { title: string; issn: string };
 type ReadingMaterialT = MyBookT | MyMagazineT;
 
 const readingMaterial: ReadingMaterialT[] = [
   {
-      title: 'New Covid-19 vaccine',
-      isbn: '978-3401002569',
-      price: 9,
+    title: "New Covid-19 vaccine",
+    isbn: "978-3401002569",
+    price: 9,
   },
   {
-      title: 'Robinson Crusoe',
-      issn: '21212-212'
-  }
+    title: "Robinson Crusoe",
+    issn: "21212-212",
+  },
 ];
 
 // ! Attention: No excess property check if MyMagazinT only contains `title` (no `issn`)!
@@ -103,8 +105,6 @@ const books2 = [
   },
 ];
 books = books2;
-
-
 
 // ! Allow excess properties
 // ! -----------------------
@@ -143,13 +143,13 @@ function buildName2(firstName: string, lastName?: string) {
   return lastName;
 }
 
-console.log(buildName2('Andre'));
+console.log(buildName2("Andre"));
 
 // !-------------------
 // ! Strict null checks
 // !-------------------
 
-let firstName: string[] | null = undefined; // not possible in strict mode 
+let firstName: string[] | null = undefined; // not possible in strict mode
 
 function myFunction3(hello?: string): string {
   if (hello) {
@@ -211,7 +211,7 @@ type Book = {
   isbn: string;
   title: string;
   pages?: number;
-}
+};
 
 type Magazine = Book & {
   coverUrl: string;
@@ -219,13 +219,13 @@ type Magazine = Book & {
   isbn: number;
 };
 
-type MagazinWithNewIsbn = Omit<Magazine, 'isbn'> & { isbn: number };
+type MagazinWithNewIsbn = Omit<Magazine, "isbn"> & { isbn: number };
 
 const magazin: Magazine = {
-  title: 'Eloquent JavaScript',
-  isbn: '978-1593272821', // Error: Type 'string' is not assignable to type 'never'
-  coverUrl: 'http://'
-}
+  title: "Eloquent JavaScript",
+  isbn: "978-1593272821", // Error: Type 'string' is not assignable to type 'never'
+  coverUrl: "http://",
+};
 
 // !---------------
 // ! Intersection: Use case example
@@ -237,13 +237,12 @@ type BookGeneral = {
   isbn: string;
   title: string;
   pages?: number;
-}
+};
 
-type BookSynced = Omit<BookGeneral, 'id'> & { id: number };
+type BookSynced = Omit<BookGeneral, "id"> & { id: number };
 
 //! Impossible type -> never type
 type IsbnIntersection = string & number;
-
 
 // const myString: never = 'string';
 
@@ -265,7 +264,6 @@ interface BookI {
 interface MagazineI extends BookI {
   isbn: number;
 }
-
 
 // !---------------
 // ! Generics
@@ -289,10 +287,10 @@ type ResponseT<T> = {
 
 const response: ResponseT<Book> = {
   id: 1,
-  data: [{ isbn: 'abc', title: 'Faust' }],
+  data: [{ isbn: "abc", title: "Faust" }],
   createdAt: 12345678,
   modifiedAt: 12345678,
-}
+};
 
 // ! Generic array
 
@@ -328,7 +326,6 @@ let book: { isbn: string; title: string };
 //   name: 'Michael',
 //   age: 65,
 // }
-
 
 // !---------------
 // ! Type guards
@@ -369,7 +366,6 @@ function move2(animal: Fish | Bird) {
 
 move2({ swim: () => {} });
 
-
 // !--------------------------------------------
 // ! `void` and `never` as function return types
 // !--------------------------------------------
@@ -383,12 +379,12 @@ move2({ swim: () => {} });
 // Expected: void does NOT allow return value
 const noop2 = (): void => {
   return true;
-}
+};
 
 // What??? 🤯: void allows return value
 const noop1: () => void = () => {
   return true;
-}
+};
 const thisIsVoid = noop1();
 
 // Explanation
@@ -397,8 +393,9 @@ const dst = [0];
 // TS decided to introduce this weird definition of void so that the following is allowed:
 src.forEach((el) => dst.push(el));
 // Although technically speacking it should be written as:
-src.forEach((el) => { dst.push(el) });
-
+src.forEach((el) => {
+  dst.push(el);
+});
 
 // ! never
 // ! -------------------
@@ -413,7 +410,7 @@ const boolOrThrow = (): void => {
   }
   // ! implicitly:
   // return undefined
-}
+};
 
 // ! `void` also possible here as type
 const alwaysThrow = (): never => {
@@ -421,7 +418,7 @@ const alwaysThrow = (): never => {
     throw new Error("hello");
   }
   throw new Error("goodbye");
-}
+};
 
 // returns `number` (even though it throws) (`number` is same as `number | never`)
 const numberFunction = (): number | never => {
@@ -430,4 +427,6 @@ const numberFunction = (): number | never => {
   } else {
     return 1;
   }
-}
+};
+
+export {};
