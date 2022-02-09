@@ -25,7 +25,7 @@
 
 // ! Scope (var)
 
-var newWord = "hello"
+var newWord = "hello";
 const testScope = () => {
   newWord = "goodbye";
 };
@@ -57,7 +57,7 @@ const mySum = (one, two, three) => {
 };
 
 const returnValue = {};
-returnValue.sds = mySum(2,6,1); // assignment
+returnValue.sds = mySum(2, 6, 1); // assignment
 console.log(returnValue.sds);
 
 // ? 🐒 [Question]: Why is this assignment to property of a `const` possible?
@@ -104,9 +104,11 @@ console.log(third);
 // It's not how React.useState function is implemented
 const useState = (initialValue) => {
   const stateValue = initialValue;
-  const setStateValue = (newValue) => { stateValue.count = newValue.count };
+  const setStateValue = (newValue) => {
+    stateValue.count = newValue.count;
+  };
   return [stateValue, setStateValue];
-}
+};
 
 // Array destructuring
 const [count, setCount] = useState({ count: 0 });
@@ -118,9 +120,11 @@ console.log(count);
 // !----------------------
 
 const props = { data: { a: [1, 2, 3], b: [4, 5, 6] } };
-const { data: { a: dataA } } = props; // nested destructuring + renaming of `a` to `dataA`
+const {
+  data: { a: dataA },
+} = props; // nested destructuring + renaming of `a` to `dataA`
 
-console.log(dataA)
+console.log(dataA);
 
 // -----------------------------------------------------------------------------
 
@@ -166,7 +170,7 @@ const five = {} + {};
 const six = {} === {};
 // console.log(six);
 
-const seven = [1, 2] ==	'1,2'
+const seven = [1, 2] == "1,2";
 // console.log(seven);
 
 // !--------------------------------
@@ -180,7 +184,7 @@ const eight = Object.is(+0, -0);
 const nine = +0 === -0;
 // console.log(nine);
 
-const car1 = { wheels: 4 }
+const car1 = { wheels: 4 };
 const car2 = car1;
 const ten = Object.is(car1, car2);
 // console.log(ten);
@@ -192,8 +196,7 @@ const eleven = Object.is(car1, car2);
 const twelve = Object.is(car1, { wheels: 5 });
 // console.log(twelve);
 
-console.log(Object.is({ a: 'blue' }, { a: 'red' }));
-
+console.log(Object.is({ a: "blue" }, { a: "red" }));
 
 // Bonus: Really crazy example:
 // https://stackoverflow.com/questions/7202157/why-does-return-the-string-10

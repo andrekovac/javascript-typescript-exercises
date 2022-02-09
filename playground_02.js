@@ -32,9 +32,8 @@ const myObjectCopiedSpread = { ...myObject };
 const myObjectCopiedSpreadDeep = {
   ...myObject,
   foo: [...myObject.foo],
-  bar: { ...myObject.bar }
+  bar: { ...myObject.bar },
 };
-
 
 // ? 🐆 [Task]: For each of the below mutations of `myObject`,
 // ?            write whether it changes one or several of the other objects:
@@ -43,11 +42,11 @@ const myObjectCopiedSpreadDeep = {
 // You can use 3️⃣ for `myObjectCopiedSpread`
 // You can use 4️⃣ for `myObjectCopiedSpreadDeep`
 
-myObject.foo[2] = 6;  // Which objects change?
-myObject.baz = 6;     // Which objects change?
-myObject.bar.b = 6;   // Which objects change?
+myObject.foo[2] = 6; // Which objects change?
+myObject.baz = 6; // Which objects change?
+myObject.bar.b = 6; // Which objects change?
 myObject.qux = "two"; // Which objects change?
-myObject.quux = "?";  // Which objects change?
+myObject.quux = "?"; // Which objects change?
 
 // ? 🐒 [Question]: Explain your decisions
 // Your answer:
@@ -135,7 +134,7 @@ const normalize = data.reduce((accumulator, currentValue) => {
 
 // ---
 // Note: `find` has complexity of O(n)
-const user = data.find(name => name.id == 3);
+const user = data.find((name) => name.id == 3);
 // ---
 
 const normalizeSpread = data.reduce((accumulator, currentValue) => {
@@ -203,23 +202,23 @@ const httpRequestWithPromise = (url) =>
     }, 1000);
   });
 
-
 // ! Make request via Promise chain
 const makeRequestPromiseChain = (url) => {
-  httpRequestWithPromise(url).then(
-    // handle resolved Promise
-    result => {
-      console.log(result.status);
-    },
-    // handle rejected Promise
-    rejectedResult => {
-      console.log(rejectedResult.status)
-    }
-  )
-  .catch(errorOrRejectedPromise => {
-    // handle error or rejected Promise
-    console.log(errorOrRejectedPromise.status);
-  })
+  httpRequestWithPromise(url)
+    .then(
+      // handle resolved Promise
+      (result) => {
+        console.log(result.status);
+      },
+      // handle rejected Promise
+      (rejectedResult) => {
+        console.log(rejectedResult.status);
+      }
+    )
+    .catch((errorOrRejectedPromise) => {
+      // handle error or rejected Promise
+      console.log(errorOrRejectedPromise.status);
+    });
 };
 
 // no url -> Promise gets rejected
@@ -231,7 +230,6 @@ makeRequestPromiseChain();
 // ?            Your task: Change the `makeRequestPromiseChain` function above
 // ?            such that the `catch` block handles the rejected Promise instead
 // ?            of the second argument of the `.then` call.
-
 
 // ! 3) async/await based request function
 // ! ----------------------------------
@@ -247,7 +245,6 @@ const makeRequestAsyncAwait = async (url) => {
     // Add code here to log the status
   }
 };
-
 
 // passed url causes resolved Promise
 makeRequestAsyncAwait("http://localhost:3000");
