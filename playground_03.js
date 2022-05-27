@@ -24,8 +24,10 @@ const what = {
 console.log(typeof conditionalObject);
 
 // ? 🐆 [Task]:
-// ?            1. Switch the `myBool` value from true to false and observe the result of the console.log statement
-// ?            2. Change the logical AND operator `&&` to the logical OR operator `||` and then to nullish coalescing operator `??`
+// ?            1. Switch the `myBool` value from true to false and observe the
+// ?               result of the console.log statement
+// ?            2. In `conditionalObject`, change the logical AND operator `&&`
+// ?               to the logical OR operator `||` and then to nullish coalescing operator `??`
 
 // ? 🐒 [Question]: Which results do you observe? Can you explain them?
 // Your answer:
@@ -36,5 +38,5 @@ console.log(typeof conditionalObject);
 // Links
 // -----
 // &&: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
-// ||:
+// ||: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
 // ??: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator
