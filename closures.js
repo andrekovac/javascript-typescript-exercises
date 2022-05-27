@@ -5,21 +5,20 @@
 function outerFunction1(frozenNumber) {
   function innerFunction1(variableNumber) {
     // Question: Which output will be logged?
-    console.log(variableNumber + frozenNumber)
+    console.log(variableNumber + frozenNumber);
   }
-  return innerFunction1
+  return innerFunction1;
 }
 
 // freeze the number 42
 let myNumber = 42;
 
-const myClosure1 = outerFunction1(myNumber) // which ugly number do you want to freeze?
+const myClosure1 = outerFunction1(myNumber); // which ugly number do you want to freeze?
 
 // Mutate number
 myNumber = 5;
 
-myClosure1(4) // Which output will be logged when calling this function?
-
+myClosure1(4); // Which output will be logged when calling this function?
 
 // ----------------------------
 // Closures (complex objects)
@@ -28,9 +27,9 @@ myClosure1(4) // Which output will be logged when calling this function?
 function outerFunction2(frozenObject) {
   function innerFunction2(variableObject) {
     // Question: Which output will be logged?
-    console.log(variableObject.count + frozenObject.count)
+    console.log(variableObject.count + frozenObject.count);
   }
-  return innerFunction2
+  return innerFunction2;
 }
 
 const input2 = { count: 3 };
@@ -46,14 +45,13 @@ myClosure2({ count: 5 }); // Which output will be logged when calling this funct
 // -----------------------------
 
 function outerFunction3(frozenObject) {
-  
   const frozenObjectCount = frozenObject.count;
 
   function innerFunction3(variableObject) {
     // Question: Which output will be logged?
-    console.log(variableObject.count + frozenObjectCount)
+    console.log(variableObject.count + frozenObjectCount);
   }
-  return innerFunction3
+  return innerFunction3;
 }
 
 const input3 = { count: 3 };
