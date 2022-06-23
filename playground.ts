@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // !---------------
 // ! Type Coercion in TypeScript
 // !---------------
@@ -219,12 +221,19 @@ type Magazine = Book & {
   isbn: number;
 };
 
+const magazin: Magazine = {
+  id: "1",
+  title: "Eloquent JavaScript",
+  isbn: 9781593272821, // Error: Type 'string' is not assignable to type 'never'
+  coverUrl: "https://www.foo.bar",
+};
+
 type MagazinWithNewIsbn = Omit<Magazine, "isbn"> & { isbn: number };
 
-const magazin: Magazine = {
-  title: "Eloquent JavaScript",
-  isbn: "978-1593272821", // Error: Type 'string' is not assignable to type 'never'
-  coverUrl: "http://",
+const magazine2: MagazinWithNewIsbn = {
+  id: "1",
+  isbn: 123,
+  title: "Vogue",
 };
 
 // !---------------
