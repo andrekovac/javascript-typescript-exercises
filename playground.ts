@@ -439,3 +439,37 @@ const numberFunction = (): number | never => {
 };
 
 export {};
+
+// !-------------------------------------------------
+// ! Type of normalize function from playground_02.js
+// !-------------------------------------------------
+
+/**
+ * Function to transform an array into an object.
+ * This decreases access to array elements by id from O(n) to O(1).
+ * O(1) is equivalent to a direct access in only one calculation step.
+ *
+ * Example: This array
+ *
+ * [
+ *   { id: 1, name: "foo" },
+ *   { id: 2, name: "bar" },
+ *   { id: 3, name: "baz" },
+ * ];
+ *
+ * gets transformed into this object:
+ *
+ * {
+ *   1: { id: 1, name: 'foo' },
+ *   2: { id: 2, name: 'bar' },
+ *   3: { id: 3, name: 'baz' },
+ * };
+ *
+ * @param data Array of data to be normalized
+ * @returns object structure of the data array
+ */
+const normalize = <T extends { id: string }>(data: T[]): Record<string, T> =>
+  data.reduce((accumulator, currentValue) => {
+    accumulator[currentValue.id] = currentValue;
+    return accumulator;
+  }, {});
