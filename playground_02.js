@@ -73,8 +73,7 @@ const objectCopy2 = myObjectCopiedSpread === myObject; // false
 
 // ! Deep copies in vanilla JS?
 // New global method: https://developer.mozilla.org/en-US/docs/Web/API/structuredClone
-// Not well supported yet. Will be supported by browsers soon.
-// For now: Use https://ramdajs.com/docs/#clone or https://lodash.com/docs/#cloneDeep
+// Browser support is great in modern browsers: https://caniuse.com/mdn-api_structuredclone
 // !---------------------------
 
 // ! Spread vs. no-spread in reduce function
